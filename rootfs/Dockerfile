@@ -6,7 +6,7 @@ RUN apk add --no-cache \
     ln -sf /usr/bin/python3 /usr/bin/python && \
     ln -sf /usr/bin/pip3 /usr/bin/pip
 
-RUN buildDeps='gcc git linux-headers musl-dev python3-dev' && \
+RUN buildDeps='gcc git linux-headers musl-dev python3-dev libffi-dev' && \
     apk add --no-cache $buildDeps && \
     # "upgrade" boto to 2.43.0 + the patch to fix minio connections
     pip install --disable-pip-version-check --no-cache-dir --upgrade \
