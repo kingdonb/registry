@@ -12,9 +12,9 @@ RUN buildDeps='gcc git linux-headers musl-dev python3-dev' && \
     pip install --disable-pip-version-check --no-cache-dir --upgrade \
         git+https://github.com/teamhephy/boto@abb38474ee5124bb571da0c42be67cd27c47094f \
         azure==4.0.0 \
-        gcloud==0.18.3 \
-        python-swiftclient==3.1.0 \
-        python-keystoneclient==3.1.0 && \
+        google-cloud==0.34.0 \
+        python-swiftclient==3.9.0 \
+        python-keystoneclient==3.22.0 && \
     # purge dev dependencies
     apk del $buildDeps
 
