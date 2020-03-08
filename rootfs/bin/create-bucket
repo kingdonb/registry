@@ -43,7 +43,7 @@ if os.getenv('REGISTRY_STORAGE') == "s3" and os.getenv('REGISTRY_STORAGE_S3_BACK
 #         conn.create_bucket(bucket_name)
 
 elif os.getenv('REGISTRY_STORAGE') == "azure":
-    conn = BlobServiceClient(url=('https://%s.blob.core.windows.net/' % os.getenv('REGISTRY_STORAGE_AZURE_ACCOUNTNAME')), credential=os.getenv('REGISTRY_STORAGE_AZURE_ACCOUNTKEY'))
+    conn = BlobServiceClient(account_url=('https://%s.blob.core.windows.net/' % os.getenv('REGISTRY_STORAGE_AZURE_ACCOUNTNAME')), credential=os.getenv('REGISTRY_STORAGE_AZURE_ACCOUNTKEY'))
     # Azure doesn't throw an exception if the container exists by default
     # https://github.com/Azure/azure-storage-python/blob/master/azure/storage/blob/baseblobservice.py#L504
     conn.create_container(bucket_name)
