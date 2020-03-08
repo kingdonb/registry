@@ -7,10 +7,10 @@ import json
 import swiftclient
 from boto import config as botoconfig
 from boto.s3.connection import S3Connection, OrdinaryCallingFormat
-from oauth2client.service_account import ServiceAccountCredentials
+#from oauth2client.service_account import ServiceAccountCredentials
 #from gcloud.storage.client import Client
 #from gcloud import exceptions
-from azure.storage.blob import BlobService
+from azure.storage.blob import BlobServiceClient
 
 def bucket_exists(conn, name):
     bucket = conn.lookup(name)
@@ -43,7 +43,7 @@ if os.getenv('REGISTRY_STORAGE') == "s3" and os.getenv('REGISTRY_STORAGE_S3_BACK
 #         conn.create_bucket(bucket_name)
 
 elif os.getenv('REGISTRY_STORAGE') == "azure":
-    conn = BlobService(account_name=os.getenv('REGISTRY_STORAGE_AZURE_ACCOUNTNAME'), account_key=os.getenv('REGISTRY_STORAGE_AZURE_ACCOUNTKEY'))
+    conn = BlobServiceClient(account_name=os.getenv('REGISTRY_STORAGE_AZURE_ACCOUNTNAME'), account_key=os.getenv('REGISTRY_STORAGE_AZURE_ACCOUNTKEY'))
     # Azure doesn't throw an exception if the container exists by default
     # https://github.com/Azure/azure-storage-python/blob/master/azure/storage/blob/baseblobservice.py#L504
     conn.create_container(bucket_name)
