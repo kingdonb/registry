@@ -13,6 +13,7 @@ RUN buildDeps='gcc git linux-headers musl-dev python3-dev libffi-dev openssl-dev
         git+https://github.com/teamhephy/boto@abb38474ee5124bb571da0c42be67cd27c47094f \
         azure==4.0.0 \
         google-cloud==0.34.0 \
+        oauth2client==4.1.3 \
         python-swiftclient==3.9.0 \
         python-keystoneclient==3.22.0 && \
     # purge dev dependencies
