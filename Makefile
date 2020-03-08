@@ -7,7 +7,7 @@ SHORT_NAME := registry
 include includes.mk versioning.mk
 
 # the filepath to this repository, relative to $GOPATH/src
-REPO_PATH = github.com/deis/registry
+REPO_PATH = github.com/kingdonb/registry
 
 SHELL_SCRIPTS = $(wildcard _scripts/*.sh contrib/ci/*.sh)
 
